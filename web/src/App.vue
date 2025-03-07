@@ -1,15 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>test</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+
+  },
+  mounted() {
+    axios.get('http://127.0.0.1:8000/test')
+      .then(response => {
+      console.log(response.data);
+      })
+      .catch(error => {
+      console.error('There was an error!', error);
+      });
   }
 }
 </script>
@@ -20,7 +28,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #890505;
   margin-top: 60px;
 }
 </style>
